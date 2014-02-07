@@ -7,10 +7,33 @@
 	<body>
 
 		<script>
-			$.get( "ajax/test.html", function( data ) {
-			  $( ".result" ).html( data );
-			  alert( "Load was performed." );
+			// $.get( "http://iou.azurewebsites.net/api/values", function( data ) {
+			// 	$( ".result" ).html( data );
+			// 	// alert( "Load was performed." );
+			// 	console.log(data);
+			// });
+			$.getJSON( "http://iou.azurewebsites.net/api/values", function( data ) {
+			  // var items = [];
+			  // $.each( data, function( key, val ) {
+			  //   items.push( "<li id='" + key + "'>" + val + "</li>" );
+			  // });
+			 
+			  // $( "<ul/>", {
+			  //   "class": "my-new-list",
+			  //   html: items.join( "" )
+			  // }).appendTo( "body" );
+				// console.log(data);
 			});
+			$.ajax({
+        type: "GET",
+        url: "http://iou.azurewebsites.net/api/values",//Address is valid
+        // contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (r) {
+            // alert("WIN");
+        },
+        error: function (msg) { console.log("ERROR"); }
+	    });
 		</script>
 	</body>
 </html>
